@@ -1,0 +1,120 @@
+{
+    "1356978628394749952": {
+        "server_name": "BOT_Safeseal_Testes",
+        "icon_url": "https://cdn.discordapp.com/icons/1356978628394749952/bf3b3111383ceee5504cf4e281355cbc.png?size=1024",
+        "invite_url": "https://discord.gg/Dgm7emq9Eg",
+        "users": {
+            "958539524353449984": {
+                "nome_usuario": "viniciusgeraldo",
+                "infrações": 1,
+                "punições": 0,
+                "registros": [
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "chupadora de mandioca",
+                        "data": "21/05/2025 22:35:11"
+                    }
+                ]
+            },
+            "880551764405940265": {
+                "nome_usuario": "oododongo",
+                "infrações": 1,
+                "punições": 0,
+                "registros": [
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "toxico",
+                        "data": "21/05/2025 22:35:36"
+                    }
+                ]
+            },
+            "828731371459051558": {
+                "nome_usuario": "gelol0443",
+                "infrações": 16,
+                "punições": 0,
+                "registros": [
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "sai logo daqui",
+                        "data": "22/05/2025 14:51:14"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "vsf",
+                        "data": "22/05/2025 16:02:25"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "tinha que ser dessa cor",
+                        "data": "22/05/2025 16:03:33"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "tinha que ser uma fêmea",
+                        "data": "22/05/2025 16:03:44"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "tinha que ser judeu",
+                        "data": "22/05/2025 16:04:37"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "macumbeiro aqui não",
+                        "data": "22/05/2025 16:04:44"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "capeta",
+                        "data": "22/05/2025 16:04:53"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "voces são muito idiotas",
+                        "data": "22/05/2025 16:05:17"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "seu sujo",
+                        "data": "22/05/2025 16:05:32"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "morr3 kkkkkkkkkkk",
+                        "data": "22/05/2025 16:05:56"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "você eh doente",
+                        "data": "22/05/2025 16:06:16"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "seu doente",
+                        "data": "22/05/2025 16:06:20"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "caralho",
+                        "data": "22/05/2025 16:16:51"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "bora la bater nele",
+                        "data": "22/05/2025 16:17:39"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "vou bater em você",
+                        "data": "22/05/2025 16:17:49"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "tinha que ser mulher",
+                        "data": "22/05/2025 16:21:43"
+                    }
+                ]
+            }
+        }
+    }
+}
