@@ -114,6 +114,63 @@
                         "data": "22/05/2025 16:21:43"
                     }
                 ]
+            },
+            "255664311043620864": {
+                "nome_usuario": "andre.ms",
+                "infrações": 10,
+                "punições": 0,
+                "registros": [
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Vai se olhar no espelho antes de falar isso, seu idiota.",
+                        "data": "23/05/2025 14:00:54"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Impressionante é sua burrice, parece que se esforça pra ser um merda!",
+                        "data": "23/05/2025 14:03:50"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Se esforçar? Você nasceu assim mesmo, um completo inútil.",
+                        "data": "23/05/2025 14:05:23"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Pelo menos eu não sou um fracassado chorão igual você.",
+                        "data": "23/05/2025 14:07:45"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Continua latindo, cachorro sem dono.",
+                        "data": "23/05/2025 14:09:48"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Vai tomar vergonha na cara e some daqui, moleque ridículo.",
+                        "data": "23/05/2025 14:42:35"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Falou o peso morto do time. Nem mute salva sua presença.",
+                        "data": "23/05/2025 14:50:02"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Vai arrumar uma vida, seu babac@ de meia tigela.",
+                        "data": "23/05/2025 15:11:09"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "Vai estudar, talvez consiga falar algo que preste pela primeira vez.",
+                        "data": "23/05/2025 15:11:09"
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "vai toma no cu entao, bot de merda",
+                        "data": "23/05/2025 15:48:26"
+                    }
+                ]
             }
         }
     }
