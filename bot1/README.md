@@ -1,1 +1,0 @@
-1 aviso no chat e privado 
