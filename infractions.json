@@ -2,173 +2,315 @@
     "1356978628394749952": {
         "server_name": "BOT_Safeseal_Testes",
         "icon_url": "https://cdn.discordapp.com/icons/1356978628394749952/bf3b3111383ceee5504cf4e281355cbc.png?size=1024",
-        "invite_url": "https://discord.gg/Dgm7emq9Eg",
+        "invite_url": "https://discord.gg/mQuHXfXYgK",
         "users": {
-            "958539524353449984": {
-                "nome_usuario": "viniciusgeraldo",
-                "infrações": 1,
+            "1087055273996341340": {
+                "nome_usuario": "mdn_gustavo",
+                "infrações": 4,
                 "punições": 0,
                 "registros": [
                     {
                         "canal": "canal-de-testes-01",
-                        "mensagem": "chupadora de mandioca",
-                        "data": "21/05/2025 22:35:11"
+                        "mensagem": "Todos que estão lendo isso são cornos",
+                        "data": "29/05/2025 14:10:14",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "a jogatina foi otima, pena que o macaco do bruno estragou tudo",
+                        "data": "07/06/2025 14:55:13",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": false,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "leve"
+                        }
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "cara voce é um merda nesse jogo",
+                        "data": "07/06/2025 14:58:08",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "medio"
+                        }
+                    },
+                    {
+                        "canal": "canal-de-testes-01",
+                        "mensagem": "vamo parar com esssa merda de macacada no server",
+                        "data": "07/06/2025 15:01:39",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "medio"
+                        }
                     }
                 ]
             },
-            "880551764405940265": {
-                "nome_usuario": "oododongo",
-                "infrações": 1,
+            "958539524353449984": {
+                "nome_usuario": "viniciusgeraldo",
+                "infrações": 2,
                 "punições": 0,
                 "registros": [
                     {
                         "canal": "canal-de-testes-01",
-                        "mensagem": "toxico",
-                        "data": "21/05/2025 22:35:36"
+                        "mensagem": "morre diabo",
+                        "data": "01/06/2025 16:26:20",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": false,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
+                    },
+                    {
+                        "motivo": "Spam visual / ASCII art detectado automaticamente",
+                        "mensagem": "~~%%%%%%%%_,_,     \n                   ~~%%%%%%%%%-\"/./      \n                 ~~%%%%%%%-'   /  `.     \n              ~~%%%%%%%%'  .     ,__;    \n            ~~%%%%%%%%'   :       \\O\\    \n          ~~%%%%%%%%'    :          `.   \n       ~~%%%%%%%%'       `. _,        '  \n    ~~%%%%%%%%'          .'`-._        `.\n ~~%%%%%%%%%'           :     `-.     (,;\n~~%%%%%%%%'             :         `._\\_.'\n~~%%jgs%%'              ;",
+                        "data": "07/06/2025 16:28:06"
                     }
                 ]
             },
             "828731371459051558": {
                 "nome_usuario": "gelol0443",
-                "infrações": 16,
+                "infrações": 1,
                 "punições": 0,
                 "registros": [
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "sai logo daqui",
-                        "data": "22/05/2025 14:51:14"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "vsf",
-                        "data": "22/05/2025 16:02:25"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "tinha que ser dessa cor",
-                        "data": "22/05/2025 16:03:33"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "tinha que ser uma fêmea",
-                        "data": "22/05/2025 16:03:44"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "tinha que ser judeu",
-                        "data": "22/05/2025 16:04:37"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "macumbeiro aqui não",
-                        "data": "22/05/2025 16:04:44"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "capeta",
-                        "data": "22/05/2025 16:04:53"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "voces são muito idiotas",
-                        "data": "22/05/2025 16:05:17"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "seu sujo",
-                        "data": "22/05/2025 16:05:32"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "morr3 kkkkkkkkkkk",
-                        "data": "22/05/2025 16:05:56"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "você eh doente",
-                        "data": "22/05/2025 16:06:16"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "seu doente",
-                        "data": "22/05/2025 16:06:20"
-                    },
                     {
                         "canal": "canal-de-testes-01",
                         "mensagem": "caralho",
-                        "data": "22/05/2025 16:16:51"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "bora la bater nele",
-                        "data": "22/05/2025 16:17:39"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "vou bater em você",
-                        "data": "22/05/2025 16:17:49"
-                    },
-                    {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "tinha que ser mulher",
-                        "data": "22/05/2025 16:21:43"
+                        "data": "07/06/2025 14:41:10",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": false,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "leve"
+                        }
                     }
                 ]
-            },
-            "255664311043620864": {
-                "nome_usuario": "andre.ms",
-                "infrações": 10,
+            }
+        }
+    },
+    "1350813305396138074": {
+        "server_name": "Servidor de vinicius",
+        "icon_url": "https://cdn.discordapp.com/icons/1350813305396138074/5fdce96d7050d4d96ff5b8c4a4e2749f.png?size=1024",
+        "invite_url": "https://discord.gg/qwXVGhNdKA",
+        "users": {
+            "958539524353449984": {
+                "nome_usuario": "viniciusgeraldo",
+                "infrações": 12,
                 "punições": 0,
                 "registros": [
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Vai se olhar no espelho antes de falar isso, seu idiota.",
-                        "data": "23/05/2025 14:00:54"
+                        "canal": "geral",
+                        "mensagem": "pau no cu de quem ler isso, curiosão",
+                        "data": "01/06/2025 16:32:26",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Impressionante é sua burrice, parece que se esforça pra ser um merda!",
-                        "data": "23/05/2025 14:03:50"
+                        "canal": "geral",
+                        "mensagem": "CU DE APERTA LINGUIÇA",
+                        "data": "01/06/2025 16:47:15",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Se esforçar? Você nasceu assim mesmo, um completo inútil.",
-                        "data": "23/05/2025 14:05:23"
+                        "canal": "geral",
+                        "mensagem": "teu cu viado",
+                        "data": "02/06/2025 11:11:34",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Pelo menos eu não sou um fracassado chorão igual você.",
-                        "data": "23/05/2025 14:07:45"
+                        "canal": "geral",
+                        "mensagem": "vou papar teu cu at de manh",
+                        "data": "03/06/2025 11:05:50",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Continua latindo, cachorro sem dono.",
-                        "data": "23/05/2025 14:09:48"
+                        "canal": "geral",
+                        "mensagem": "quem responder  viado.",
+                        "data": "03/06/2025 11:06:31",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Vai tomar vergonha na cara e some daqui, moleque ridículo.",
-                        "data": "23/05/2025 14:42:35"
+                        "canal": "geral",
+                        "mensagem": "vou papar teu cu até de manhã",
+                        "data": "03/06/2025 11:09:03",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Falou o peso morto do time. Nem mute salva sua presença.",
-                        "data": "23/05/2025 14:50:02"
+                        "canal": "geral",
+                        "mensagem": "quem responder é viado.",
+                        "data": "03/06/2025 11:09:48",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "limpa": false
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Vai arrumar uma vida, seu babac@ de meia tigela.",
-                        "data": "23/05/2025 15:11:09"
+                        "canal": "geral",
+                        "mensagem": "cadela no cio",
+                        "data": "03/06/2025 11:35:36",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": false,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "leve"
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "Vai estudar, talvez consiga falar algo que preste pela primeira vez.",
-                        "data": "23/05/2025 15:11:09"
+                        "canal": "geral",
+                        "mensagem": "vou matar sua familia inteira",
+                        "data": "03/06/2025 11:36:12",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "medio"
+                        }
                     },
                     {
-                        "canal": "canal-de-testes-01",
-                        "mensagem": "vai toma no cu entao, bot de merda",
-                        "data": "23/05/2025 15:48:26"
+                        "canal": "geral",
+                        "mensagem": "vou pegar essa menininha e acabar com ela",
+                        "data": "03/06/2025 11:36:57",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "medio"
+                        }
+                    },
+                    {
+                        "canal": "geral",
+                        "mensagem": "buceta tem que ser pequena e apertada",
+                        "data": "03/06/2025 11:38:02",
+                        "analise_contexto": {
+                            "racista": false,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": true,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "medio"
+                        }
+                    },
+                    {
+                        "canal": "geral",
+                        "mensagem": "não gosto de preto, tudo ladrão",
+                        "data": "03/06/2025 11:38:33",
+                        "analise_contexto": {
+                            "racista": true,
+                            "toxica": true,
+                            "sarcastica": false,
+                            "ironica": false,
+                            "palavra_neutra_em_contexto_toxico": false,
+                            "ofensiva_geral": false,
+                            "conteudo_suspeito_pedofilia": false,
+                            "limpa": false,
+                            "nivel_infracao": "grave"
+                        }
                     }
                 ]
             }

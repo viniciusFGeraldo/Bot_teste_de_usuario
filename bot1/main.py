@@ -8,12 +8,27 @@ import json
 from datetime import datetime, timedelta, timezone
 import asyncio
 from collections import defaultdict, deque
+import re
 
 # Caminho do arquivo JSON para armazenar infrações
 infractions_file = "infractions.json"
 
 # Caminho do arquivo JSON para armazenar todas as mensagens
 messages_file = "mensagens.json"
+
+# Arquivo JSON para armazenar informações dos servidores
+servers_file = "servers.json"
+
+def load_servers():
+    if os.path.exists(servers_file):
+        with open(servers_file, "r", encoding="utf-8") as file:
+            return json.load(file)
+    return {}
+
+def save_servers(data):
+    with open(servers_file, "w", encoding="utf-8") as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)
+
 
 def load_messages():
     if os.path.exists(messages_file):
@@ -36,6 +51,26 @@ def load_infractions():
 def save_infractions(data):
     with open(infractions_file, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
+
+def is_ascii_art_or_spam(text):
+    # Linha com muitos caracteres especiais (possível ASCII art)
+    if sum(1 for c in text if not c.isalnum() and c not in ' \n') > len(text) * 0.4:
+        return True
+
+    # Muitas linhas com poucos caracteres (padrão de arte ASCII)
+    lines = text.splitlines()
+    if len(lines) > 5 and all(len(line.strip()) < 40 for line in lines):
+        return True
+
+    # Repetição excessiva de caracteres
+    if re.search(r'(.)\1{10,}', text):  # ex: aaaaaaaaaaaa
+        return True
+
+    # Comprimento da mensagem
+    if len(text) > 1200:
+        return True
+
+    return False
 
 # Configuração de tempo de punição (em minutos) para cada infração
 punishment_times = {
@@ -68,31 +103,34 @@ intents.members = True
 
 bot = commands.Bot(command_prefix="!", intents=intents, application_id=client_id)
 
-# Função para checagem de linguagem ofensiva
-async def check_offensive_gpt(text: str) -> bool:
-    prompt = [
-        {
-            "role": "system",
-            "content": (
-                "Você é um sistema de moderação. Responda com 'OFFENSIVE' se o texto contiver linguagem ofensiva, ódio, racismo, homofobia, machismo, transfobia, etc. Caso contrário, responda 'CLEAN'."
-            )
-        },
-        {"role": "user", "content": text},
-    ]
+@bot.event
+async def on_guild_join(guild):
+    servers = load_servers()
+
+    # Evita duplicação
+    if str(guild.id) in servers:
+        return
+
+    # Tenta gerar um convite permanente
     try:
-        from openai import AsyncOpenAI
-        client = AsyncOpenAI()
-        response = await client.chat.completions.create(
-            model="gpt-3.5-turbo",  # ou "gpt-4o-mini" se quiser, "gpt-3.5-turbo"
-            messages=prompt,
-            max_tokens=10,
-            temperature=0.0
-        )
-        result = response.choices[0].message.content.strip().lower()
-        return "offensive" in result
+        canal = next((c for c in guild.text_channels if c.permissions_for(guild.me).create_instant_invite), None)
+        invite = await canal.create_invite(max_age=0, max_uses=0, reason="Convite permanente para registro de servidor") if canal else None
+        invite_url = str(invite) if invite else "Sem permissão"
     except Exception as e:
-        print(f"Erro ao consultar GPT para moderação: {e}")
-        return False
+        invite_url = f"Erro: {e}"
+
+    # Obtém o ícone
+    icon_url = guild.icon.url if guild.icon else "Nenhum ícone"
+
+    servers[str(guild.id)] = {
+        "id_servidor": str(guild.id),
+        "server_name": guild.name,
+        "icone": icon_url,
+        "invite_url": invite_url
+    }
+
+    save_servers(servers)
+    print(f"Servidor registrado: {guild.name} ({guild.id})")
 
 # Evento de início do bot
 @bot.event
@@ -100,11 +138,67 @@ async def on_ready():
     print(f'Pronto! Login realizado como {bot.user} (ID: {bot.user.id})')
     print(f'Application ID: {bot.application_id}')
 
+    servers = load_servers()
+    for guild in bot.guilds:
+        if str(guild.id) not in servers:
+            try:
+                canal = next((c for c in guild.text_channels if c.permissions_for(guild.me).create_instant_invite), None)
+                invite = await canal.create_invite(max_age=0, max_uses=0, reason="Convite permanente") if canal else None
+                invite_url = str(invite) if invite else "Sem permissão"
+            except Exception as e:
+                invite_url = f"Erro: {e}"
+            icon_url = guild.icon.url if guild.icon else "Nenhum ícone"
+            servers[str(guild.id)] = {
+                "id_servidor": str(guild.id),
+                "server_name": guild.name,
+                "icone": icon_url,
+                "invite_url": invite_url
+            }
+    save_servers(servers)
+
 # Evento de mensagem recebida
 @bot.event
 async def on_message(message):
     if message.author.bot:
         return
+    
+    if is_ascii_art_or_spam(message.content):
+        try:
+            await message.delete()
+        except discord.NotFound:
+            pass
+
+        # Registra infração como "spam visual" ou "ASCII art"
+        infractions = load_infractions()
+        server_id = str(message.guild.id)
+
+        if server_id not in infractions:
+            infractions[server_id] = {
+                "server_name": message.guild.name,
+                "icon_url": message.guild.icon.url if message.guild.icon else "Nenhum ícone",
+                "invite_url": "Desconhecido",
+                "users": {}
+            }
+
+        user_data = infractions[server_id]["users"].setdefault(str(message.author.id), {
+            "nome_usuario": str(message.author),
+            "infrações": 0,
+            "punições": 0,
+            "registros": []
+        })
+
+        user_data["infrações"] += 1
+        user_data["registros"].append({
+            "motivo": "Spam visual / ASCII art detectado automaticamente",
+            "mensagem": message.content,
+            "data": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        })
+
+        save_infractions(infractions)
+
+        await message.channel.send(f"{message.author.mention}, sua mensagem foi removida por conter spam ou arte em texto proibida.")
+        return  # Não segue para classificação por IA
+
 
     # 🔸 Registro de mensagens gerais (não tem relação com infrações)
     messages = load_messages()
@@ -130,32 +224,83 @@ async def on_message(message):
     if message.content.lower().startswith("!infracoes"):
         await exibir_infracoes_do_usuario(message)
         return
+    
+    # 🔍 Função para classificar o contexto da mensagem
+    async def classify_message_context(text: str) -> dict:
+        prompt = [
+            {
+                "role": "system",
+                "content": (
+                    "Você é um moderador de mensagens especializado em entender contexto. "
+                    "Classifique a mensagem do usuário de acordo com as seguintes categorias, "
+                    "respondendo em formato JSON:\n\n"
+                    "{\n"
+                    "  'racista': true/false,\n"
+                    "  'toxica': true/false,\n"
+                    "  'sarcastica': true/false,\n"
+                    "  'ironica': true/false,\n"
+                    "  'palavra_neutra_em_contexto_toxico': true/false,\n"
+                    "  'ofensiva_geral': true/false,\n"
+                    "  'conteudo_suspeito_pedofilia': true/false,\n"
+                    "  'limpa': true/false,\n"
+                    "  'nivel_infracao': 'leve' | 'medio' | 'grave'\n"
+                    "}\n\n"
+                    "Regras para 'nivel_infracao':\n"
+                    "- 'grave': Quando envolver discurso de ódio como racismo, pedofilia (ou conteúdo suspeito relacionado), ou temas de extrema gravidade.\n"
+                    "- 'medio': Quando houver mensagens tóxicas, ofensas gerais ou agressividade verbal.\n"
+                    "- 'leve': Quando não se enquadrar nas situações acima, mas contenha sarcasmo, ironia, ou uso de palavras neutras em contexto tóxico. Se for uma mensagem limpa, também é classificado como 'leve'.\n\n"
+                    "Sobre 'conteudo_suspeito_pedofilia': Sinalize como true caso a mensagem contenha qualquer linguagem suspeita que faça alusão a exploração infantil, assédio a menores, linguagem inapropriada com conotação sexual envolvendo menores ou termos associados.\n\n"
+                    "Responda SOMENTE com o JSON, sem comentários adicionais."
+                )
+            },
+            {"role": "user", "content": text},
+        ]
 
-    # 🔸 Verifica se a mensagem contém linguagem ofensiva
-    if await check_offensive_gpt(message.content):
+        try:
+            from openai import AsyncOpenAI
+            client = AsyncOpenAI()
+            response = await client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=prompt,
+                max_tokens=300,
+                temperature=0.0
+            )
+            content = response.choices[0].message.content.strip()
+            content = content.replace("'", '"')  # Garante JSON válido
+            return json.loads(content)
+        except Exception as e:
+            print(f"Erro na classificação contextual: {e}")
+            return {}
+
+    # 🔍 Analisa a mensagem
+    context_analysis = await classify_message_context(message.content)
+
+    if not context_analysis:
+        await bot.process_commands(message)
+        return
+
+    # 🔍 Verifica se há alguma infração
+    if any([
+        context_analysis.get("racista"),
+        context_analysis.get("toxica"),
+        context_analysis.get("ofensiva_geral"),
+        context_analysis.get("palavra_neutra_em_contexto_toxico")
+    ]):
         try:
             await message.delete()
         except discord.NotFound:
             pass
 
         infractions = load_infractions()
-
         server_id = str(message.guild.id)
 
-        # 🔸 Se o servidor não está registrado, cria o registro com dados fixos
+        # 🔧 Garante que dados do servidor estão registrados
         if server_id not in infractions:
             try:
                 canal = next((c for c in message.guild.text_channels if c.permissions_for(message.guild.me).create_instant_invite), None)
-
-                if canal:
-                    invite = await canal.create_invite(max_age=0, max_uses=0, reason="Convite permanente para registro")
-                    invite_url = str(invite)
-                else:
-                    invite_url = "Sem permissão para criar convite"
-
-            except discord.Forbidden:
-                invite_url = "Sem permissão para criar convite"
-            except Exception:
+                invite = await canal.create_invite(max_age=0, max_uses=0, reason="Convite permanente") if canal else None
+                invite_url = str(invite) if invite else "Sem permissão"
+            except:
                 invite_url = "Erro ao gerar convite"
 
             icon_url = message.guild.icon.url if message.guild.icon else "Nenhum ícone"
@@ -168,12 +313,10 @@ async def on_message(message):
             }
 
         else:
-            # 🔸 Se já existe, apenas atualiza nome e ícone, se mudou
             infractions[server_id]["server_name"] = message.guild.name
             infractions[server_id]["icon_url"] = message.guild.icon.url if message.guild.icon else "Nenhum ícone"
-            # ❌ Não atualiza o convite, pois já foi criado
 
-        # 🔸 Registro de infração do usuário
+        # 🔧 Registro de infração do usuário
         guild_data = infractions[server_id]
         user_data = guild_data["users"].setdefault(str(message.author.id), {
             "nome_usuario": str(message.author),
@@ -188,7 +331,8 @@ async def on_message(message):
         registro = {
             "canal": message.channel.name if isinstance(message.channel, discord.TextChannel) else "Desconhecido",
             "mensagem": message.content,
-            "data": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            "data": datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+            "analise_contexto": context_analysis
         }
         user_data["registros"].append(registro)
 
